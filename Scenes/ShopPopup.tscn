@@ -1,0 +1,220 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Font/Title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/icons/gold_key.png" type="Texture" id=2]
+[ext_resource path="res://Assets/selectItem.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/items_pressed.gd" type="Script" id=4]
+[ext_resource path="res://Assets/icons/key.png" type="Texture" id=5]
+[ext_resource path="res://Assets/icons/orange.png" type="Texture" id=6]
+[ext_resource path="res://Assets/icons/pizza.png" type="Texture" id=7]
+[ext_resource path="res://Assets/icons/egg.png" type="Texture" id=8]
+[ext_resource path="res://Assets/icons/apple.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/items_desc.gd" type="Script" id=10]
+[ext_resource path="res://Assets/dungeon_full/ui (new)/menu_button.png" type="Texture" id=11]
+[ext_resource path="res://Assets/dungeon_full/ui (new)/menu_button_press.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/buy.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/cancel.gd" type="Script" id=14]
+
+[node name="ShopPopup" type="Node2D"]
+
+[node name="ConfirmationDialog" type="PanelContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 211.0
+margin_bottom = 115.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmationDialog"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 203.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TitleContainer" type="CenterContainer" parent="ConfirmationDialog/VBoxContainer"]
+margin_right = 196.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ConfirmationDialog/VBoxContainer/TitleContainer"]
+margin_left = 71.0
+margin_right = 125.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 1 )
+text = "SHOP"
+
+[node name="ShopContainer" type="HBoxContainer" parent="ConfirmationDialog/VBoxContainer"]
+margin_top = 30.0
+margin_right = 196.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="ConfirmationDialog/VBoxContainer/ShopContainer"]
+margin_right = 130.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemList" type="GridContainer" parent="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 123.0
+margin_bottom = 23.0
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 6
+
+[node name="Gold Key" type="TextureButton" parent="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList"]
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "Gold Key"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 2 )
+texture_focused = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="Key" type="TextureButton" parent="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList"]
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+hint_tooltip = "Key"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 5 )
+texture_focused = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="Orange" type="TextureButton" parent="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList"]
+margin_left = 40.0
+margin_right = 56.0
+margin_bottom = 16.0
+hint_tooltip = "Orange"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 6 )
+texture_focused = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="Pizza" type="TextureButton" parent="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList"]
+margin_left = 60.0
+margin_right = 76.0
+margin_bottom = 16.0
+hint_tooltip = "Pizza"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 7 )
+texture_focused = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="Egg" type="TextureButton" parent="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+hint_tooltip = "Egg"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 8 )
+texture_focused = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="Apple" type="TextureButton" parent="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList"]
+margin_left = 100.0
+margin_right = 116.0
+margin_bottom = 16.0
+hint_tooltip = "Apple"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 9 )
+texture_focused = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="PanelContainer" type="PanelContainer" parent="ConfirmationDialog/VBoxContainer/ShopContainer"]
+margin_left = 134.0
+margin_right = 196.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 55.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="itemDesc" type="Label" parent="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer/CenterContainer"]
+margin_left = 24.0
+margin_top = 1.0
+margin_right = 24.0
+margin_bottom = 15.0
+align = 1
+valign = 1
+script = ExtResource( 10 )
+
+[node name="CenterContainer" type="CenterContainer" parent="ConfirmationDialog/VBoxContainer"]
+margin_top = 64.0
+margin_right = 196.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ButtonContainer" type="HBoxContainer" parent="ConfirmationDialog/VBoxContainer/CenterContainer"]
+margin_right = 196.0
+margin_bottom = 32.0
+
+[node name="buy" type="TextureButton" parent="ConfirmationDialog/VBoxContainer/CenterContainer/ButtonContainer"]
+margin_right = 96.0
+margin_bottom = 32.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+script = ExtResource( 13 )
+
+[node name="RichTextLabel" type="Label" parent="ConfirmationDialog/VBoxContainer/CenterContainer/ButtonContainer/buy"]
+margin_left = 37.0
+margin_top = 8.0
+margin_right = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Buy"
+
+[node name="cancel" type="TextureButton" parent="ConfirmationDialog/VBoxContainer/CenterContainer/ButtonContainer"]
+margin_left = 100.0
+margin_right = 196.0
+margin_bottom = 32.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+script = ExtResource( 14 )
+
+[node name="RichTextLabel2" type="Label" parent="ConfirmationDialog/VBoxContainer/CenterContainer/ButtonContainer/cancel"]
+anchor_right = 1.0
+margin_left = 29.0
+margin_top = 8.0
+margin_right = -22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Cancel"
+
+[node name="ErrorContainer" type="CenterContainer" parent="ConfirmationDialog/VBoxContainer"]
+margin_top = 100.0
+margin_right = 196.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="error" type="Label" parent="ConfirmationDialog/VBoxContainer/ErrorContainer"]
+visible = false
+margin_left = 42.0
+margin_top = -7.0
+margin_right = 154.0
+margin_bottom = 7.0
+custom_colors/font_color = Color( 1, 0.262745, 0.262745, 1 )
+text = "Not Enough Coins"
+[connection signal="pressed" from="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList/Gold Key" to="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList/Gold Key" method="_on_key_pressed"]
+[connection signal="pressed" from="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList/Key" to="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList/Key" method="_on_key_pressed"]
+[connection signal="pressed" from="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList/Orange" to="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList/Orange" method="_on_key_pressed"]
+[connection signal="pressed" from="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList/Pizza" to="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList/Pizza" method="_on_key_pressed"]
+[connection signal="pressed" from="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList/Egg" to="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList/Egg" method="_on_key_pressed"]
+[connection signal="pressed" from="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList/Apple" to="ConfirmationDialog/VBoxContainer/ShopContainer/PanelContainer2/ItemList/Apple" method="_on_key_pressed"]
+[connection signal="pressed" from="ConfirmationDialog/VBoxContainer/CenterContainer/ButtonContainer/buy" to="ConfirmationDialog/VBoxContainer/CenterContainer/ButtonContainer/buy" method="_on_buy_pressed"]
+[connection signal="pressed" from="ConfirmationDialog/VBoxContainer/CenterContainer/ButtonContainer/cancel" to="ConfirmationDialog/VBoxContainer/CenterContainer/ButtonContainer/cancel" method="_on_cancel_pressed"]

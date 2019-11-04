@@ -1,0 +1,54 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/light.png" type="Texture" id=2]
+[ext_resource path="res://Assets/dungeon_full/heroes/knight/knight_idle_anim_f0.png" type="Texture" id=3]
+[ext_resource path="res://Assets/dungeon_full/heroes/knight/knight_idle_anim_f1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/dungeon_full/heroes/knight/knight_idle_anim_f2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/dungeon_full/heroes/knight/knight_idle_anim_f3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/dungeon_full/heroes/knight/knight_idle_anim_f4.png" type="Texture" id=7]
+[ext_resource path="res://Assets/dungeon_full/heroes/knight/knight_idle_anim_f5.png" type="Texture" id=8]
+[ext_resource path="res://Assets/dungeon_full/heroes/knight/knight_run_anim_f0.png" type="Texture" id=9]
+[ext_resource path="res://Assets/dungeon_full/heroes/knight/knight_run_anim_f1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/dungeon_full/heroes/knight/knight_run_anim_f2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/dungeon_full/heroes/knight/knight_run_anim_f3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/dungeon_full/heroes/knight/knight_run_anim_f4.png" type="Texture" id=13]
+[ext_resource path="res://Assets/dungeon_full/heroes/knight/knight_run_anim_f5.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "walk",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.32796, 1.67753 )
+
+[node name="Main Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2( -2.86158, 0.14862 )
+current = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "walk"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.483688, 4.39178 )
+scale = Vector2( 1, 1.3494 )
+shape = SubResource( 1 )

@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Font/Title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/dungeon_full/ui (new)/menu_button.png" type="Texture" id=2]
+[ext_resource path="res://Assets/dungeon_full/ui (new)/menu_button_press.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/backToMenu.gd" type="Script" id=4]
+
+[node name="Win" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.85, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 378.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 378.0
+margin_bottom = 180.0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_right = 378.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
+margin_top = 21.0
+margin_right = 378.0
+margin_bottom = 66.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You Win The Game"
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 92.0
+margin_right = 378.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/CenterContainer2"]
+margin_left = 141.0
+margin_top = 28.0
+margin_right = 237.0
+margin_bottom = 60.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer2/TextureButton"]
+margin_left = 4.0
+margin_top = 8.0
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Back to Menu"
+align = 1
+valign = 1
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/TextureButton" to="VBoxContainer/CenterContainer2/TextureButton" method="_on_TextureButton_pressed"]
